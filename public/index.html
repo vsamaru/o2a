@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>|</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+  </head>
+<!-- <p><a href="/one.html">🔙</a></p> -->
+  <body class="bg-grey-100 px-3 font-sans leading-normal tracking-normal">
+
+
+
+         <div class="container pt-8 mx-auto" x-data="alpineInstance()"
+           x-init="fetch('/l')
+                      .then(response => response.json())
+                      .then(data => myForData = data)">
+      <div class="grid grid-cols-2">
+
+        <template x-for="item in myForData" :key="item">
+          <div @click="fetch('/x?i='+item.id)" 
+            class="items-center"
+          >
+            <img
+         
+              :src="`${item.url}`"
+            />
+
+<!--             <div class="text-sm">
+              <p
+                class="text-gray-900"
+                x-text="item.id + ' (' + item.date + ')'"
+              ></p>
+              <p
+                class="text-gray-600"
+                x-text="'$'+item.pic"
+              ></p>
+                  <div id="counter"
+     x-data="{count: 0}"
+     x-init="() => {
+        $watch('count', value => {
+          console.log(item.id+' ' + value)
+        })
+      }">
+  <h1>➙<span x-text="count"></span></h1>
+  <h1 x-show="count > 100">The count is greater than 100</h1>
+  <button x-on:click="count = count - 1">➖</button>
+  <button @click="count = count + 1">➕</button> -->
+</div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+ <script>
+  
+
+
+  function alpineInstance() {
+  return {
+    title: 'Alpine.js',
+    intro: 'Implement a simple <code class="text-md text-pink-600">fetch()</code> request to render a list of items using Alpine.js :)',
+    myForData: [],
+  }
+}
+      // var sourceData = async () => await fetch("https://kaba.4l.workers.dev/x").then( r => r.json())
+    </script>
+
+     <!-- <script src="./alpine-clipboard.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"g": "git add . && git commit -m \"first commit\" && git push -u origin main -f",
+		"t": "nodemon -r esm t.js",
+		"w": "wrangler publish"
+	},
+	"dependencies": {
+
+		"esm": "^3.2.25",
+		"firebase-firestore-lite": "^1.0.3",
+		"isomorphic-unfetch": "^3.1.0",
+		"mime": "^2.5.2"
+	}
+}
