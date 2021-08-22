@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.InternalError = exports.NotFoundError = exports.MethodNotAllowedError = exports.serveSinglePageApp = exports.mapRequestToAsset = exports.getAssetFromKV = void 0;
 const mime = require("mime");
 
+
 const defaultCacheControl = {
     browserTTL: null,
     edgeTTL: 2 * 60 * 60 * 24,
