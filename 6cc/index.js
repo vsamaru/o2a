@@ -70,6 +70,7 @@
                     X.file = re.file
                     re.photo = 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
                 })
+                console.warn(re.photo)
             if (re.caption && !re.media_group_id) {
                 re.caption = re.caption.toUpperCase()
             } else {
