@@ -251,7 +251,7 @@
         re = await x(re)
         await db.put(X, re.from)
         if (re.message_id) {
-            await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
+           // await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
         }
         return re
     }
