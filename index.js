@@ -55,7 +55,7 @@ async function handleEvent(event) {
         var f = e.id
 if(i < 1) f = rr
         return `<img src="${e.url}" onclick=fetch("/x?i=${e.id}")><figcaption>${f}</figcaption><br><br>`})
-    
+    v = v.reverse()
    // v.push(w)
     // v = [...v,...w]
    // console.warn(v)
