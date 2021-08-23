@@ -208,6 +208,11 @@ B.method = "sendMessage"
                X.cc = re.text.split("-")[1]
                X.ab = re.text.split("-")[2]
             }
+                        if (re.text.startsWith("$") && re.text.split(" ")[1]) {
+            
+               X.set = re.text.split(" ")[1]
+               //X.ab = re.text.split(" ")[2]
+            }
         }
         if (re.data && re.data == "-") {
             B.method = "answerCallbackQuery"
@@ -238,6 +243,7 @@ B.method = "sendMessage"
                     pic: r.url_viewer,
                     url: r.display_url,
                     raw: r.url,
+                    set: X.set,
                     is: 1
                 })
                 B.parse_mode = "HTML"
