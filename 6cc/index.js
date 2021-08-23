@@ -253,6 +253,7 @@ B.method = "sendMessage"
             delete re.text
         }
         if (re.bot_command && re.bot_command == "/start") {
+            B.method = "sendMessage"
             X.no = 1
             X.msg = (1 + re.message_id)
             B.text = X.msg
