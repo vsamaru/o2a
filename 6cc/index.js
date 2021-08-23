@@ -65,6 +65,7 @@
                 await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}`)
   .then( r => r.text() )
   .then( data => {
+    
     console.warn(data)
   })
                 /*
