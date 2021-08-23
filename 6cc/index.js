@@ -203,6 +203,11 @@ B.method = "sendMessage"
                 X.no = 1
                 X.ref = re.text.replace(".", "").toUpperCase()
             }
+            if (re.text.startsWith("-") && re.text.split("-")[2]) {
+            
+               X.cc = re.text.split("-")[1]
+               X.ab = re.text.split("-")[2]
+            }
         }
         if (re.data && re.data == "-") {
             B.method = "answerCallbackQuery"
