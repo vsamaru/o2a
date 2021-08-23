@@ -158,6 +158,7 @@ B.method = "sendMessage"
         //     await console.l(B)
         // }
         if (re.type === "chosen_inline_result") {
+              if (re.query.startsWith('\\')) await db.del(re.result_id)
             re.x = await db.get('*/' + re.result_id)
             if(re.x){
  if(re.x.is>0){
@@ -288,6 +289,7 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
+
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true

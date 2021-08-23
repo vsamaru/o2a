@@ -36,6 +36,9 @@ var List = async x => {
 var Get = async x => {
     return await D.ref(x).get().catch(r => { return {} }) //.then( r => r || 2)
 }
+var Del = async x => {
+    return await D.ref('*/' + x).delete().catch(r => { return {} }) //.then( r => r || 2)
+}
 var Put = async (x, z, y) => {
     if (!z && x && x.id) return await D.ref('*/' + x.id).set(x)
     if (z) {
@@ -49,10 +52,12 @@ var Put = async (x, z, y) => {
     }
 }
 var db = function() {
+    var del = async x => await Del(x)
     var get = async x => await Get(x)
     var list = async x => await List(x)
     var put = async (x, z, y) => await Put(x, z, y)
     return {
+        del: del,
         put: put,
         list: list,
         get: get
