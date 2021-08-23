@@ -292,7 +292,7 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-            var rrr = re.query.split("\n").map(e=>e.replace("img","i.img")+"/i.png")
+            var rrr = re.query.split("\n").map(e=>e.replace("ibb","i.ibb")+"/i.png")
 console.warn(rrr)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
