@@ -241,7 +241,7 @@ B.method = "sendMessage"
                     is: 1
                 })
                 B.parse_mode = "HTML"
-                return B.text = `<a href="${"https://c.8c.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
+                return B.text = `<a href="${"https://ovca.8c.workers.dev/?v="+Date.now()}">ㅤ${X.no}</a>`
             })
         }
         if (re.via_bot) {
