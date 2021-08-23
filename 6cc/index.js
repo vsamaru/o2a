@@ -295,6 +295,7 @@ B.method = "sendMessage"
             var A = []
             var rrr = re.query.split("\n").map(e=>{
                 var o = {}
+                o.type = "photo"
                 o.title = e.replace("ibb","i.ibb")+"/i.png"
                 o.id = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_thumb = e.replace("ibb","i.ibb")+"/i.png"
