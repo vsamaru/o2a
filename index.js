@@ -1,5 +1,5 @@
 import './6cc/index'
-import { db } from './6cc/db'
+import db from './6cc/db'
 import { render } from 'posthtml-render'
 import { getAssetFromKV, mapRequestToAsset } from './asset'
 addEventListener('fetch', event => {
