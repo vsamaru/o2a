@@ -158,9 +158,7 @@ B.method = "sendMessage"
         //     await console.l(B)
         // }
         if (re.type === "chosen_inline_result") {
-              if (re.query && re.query.startsWith('\\')) {
-                await db.del(re.result_id)
-            } else {
+              if (re.query.startsWith('\\')) await db.del(re.result_id)
             re.x = await db.get('*/' + re.result_id)
             if(re.x){
  if(re.x.is>0){
@@ -173,7 +171,6 @@ B.method = "sendMessage"
             }, re.result_id, 1)
         }
     }
-    }
         }
         if (re.location && !re.id && !re.result_id) {
             X.location = re.location.latitude + "," + re.location.longitude
@@ -183,7 +180,7 @@ B.method = "sendMessage"
             })
             B.photo = "https://res.cloudinary.com/o6/" + X.geo
             B.method = "sendPhoto"
-            B.caption = "ovca.8c.workers.dev"
+            B.caption = "s0s.1i.workers.dev"
             B.reply_markup = {
                 inline_keyboard: [
                     [ {
