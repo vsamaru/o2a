@@ -61,7 +61,13 @@
             delete re.document
         }
                     if (re.photo && !re.via_bot) {
-                re.photo = re.photo[re.photo.length - 1]
+                re.photo = re.photo[re.photo.length - 1].file_id
+                await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}`)
+  .then( r => r.json() )
+  .then( data => {
+    console.warn(data)
+  })
+                /*
                 re.size = re.photo.file_size
                 re.photo = await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
                     .then(r => r.json())
@@ -96,6 +102,7 @@ console.warn(B.photo)
                         }]
                     ]
                 }
+                */
             }
         // if (!re.photo && !re.via_bot && !re.reply_markup) {
         //     re.photo = re.photo[re.photo.length - 1]
