@@ -77,11 +77,11 @@
                 }
                 var i = "-" + Date.now()
                 re.photo = `https://res.cloudinary.com/il/image/upload/c_scale,w_1280/b_aquamarine,co_black,l_text:Yanone%20Kaffeesatz_42_bold_center:%20${X.location.replace(/,/g, "%20") + "%20" + X.ref}%20${re.caption.replace(/ /g, "%20")}%20,fl_relative,w_1,y_1.01,g_south/l_i:${re.file},fl_relative,w_1,y_1.01,g_south/${X.geo}`
- console.log(re.photo)
+ console.warn(re.photo)
           B.photo = await fetch(`https://api.cloudinary.com/v1_1/il/image/upload?upload_preset=iiilll&file=${encodeURIComponent(re.photo)}`).then(r => r.json()).then(r => {
                     return "https://res.cloudinary.com/il/"+r.public_id
                 })
-console.log(B.photo)
+console.warn(B.photo)
                B.text = `<a href="${re.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
                 B.reply_markup = {
