@@ -3,9 +3,9 @@ var D = new Database({ projectId: 'i----i' })
 var ref
 var List = async x => {
     var results = await D.ref('*').query({
-        // where: [
-        //     ['set', '==', X.set]
-        // ],
+        where: [
+            ['set', '==', X.set]
+        ],
         orderBy: { field: 'date', direction: 'desc' },
         limit: 50 // The max results
     }).run()
