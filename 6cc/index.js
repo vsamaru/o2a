@@ -292,7 +292,8 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-console.warn(re.query)
+            var rrr = re.query.split("\n").map(e=>e.replace("img","i.img")+"/i.png")
+console.warn(rrr)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
