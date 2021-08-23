@@ -292,11 +292,14 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-            var A = []
-            var rrr = re.query.split("\n").map(e=>{
+            var A = ''
+            var rrr = re.query.split("\n")
+            if(rrr[1]){
+                A = []
+            rrr.map(e=>{
                 var o = {}
                 o.type = "photo"
-                  
+
                 o.title = e.replace("ibb","i.ibb")+"/i.png"
                 o.id = e.replace("ibb","i.ibb")+"/i.png"
                 o.thumb_url = e.replace("ibb","i.ibb")+"/i.png"
@@ -304,13 +307,15 @@ B.method = "sendMessage"
                 o.photo_url = e.replace("ibb","i.ibb")+"/i.png"
                 A.unshift(o)
         })
-console.warn(A)
+
+        }
+// console.warn(A)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
             B.cache_time = 0
 
-            B.results = A//await db.list(re)
+            B.results = A || (await db.list(re))
         }
         try {
             if(B.method) await console.l(B)
