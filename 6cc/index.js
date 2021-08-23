@@ -95,6 +95,8 @@
                 })
 console.warn(B.photo)
 */
+B.method = "editMessageText"
+B.message_id = X.msg
                B.text = `<a href="${B.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
                 B.reply_markup = {
