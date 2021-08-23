@@ -51,11 +51,8 @@ async function handleEvent(event) {
   var vv = await db.list()
   var rr = ""
  var w = await vv.map(e => {rr+=`<figcaption>${e.pic}</figcaption>`})
-    var v = await vv.map((e,i) => {
-        var f = e.id
-if(i == vv.length) f += "<br><br>" + rr
-        return `<img src="${e.url}" onclick=fetch("/x?i=${e.id}")><figcaption>${f}</figcaption><br><br>`})
-    
+    var v = await vv.map((e,i) =>`<img src="${e.url}" onclick=fetch("/x?i=${e.id}")><figcaption>${f}</figcaption><br><br>`)
+    v.push(rr)
    // v.push(w)
     // v = [...v,...w]
    // console.warn(v)
