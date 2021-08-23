@@ -307,9 +307,9 @@ B.method = "sendText"
     console.error(err)
 }
 finally {
-            if (re.message_id) {
-            await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
-        }
+        //     if (re.message_id) {
+        //     await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
+        // }
 }
         return re
     }
