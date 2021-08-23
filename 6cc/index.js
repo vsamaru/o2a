@@ -292,21 +292,23 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-            var o = {}
+            var A = []
             var rrr = re.query.split("\n").map(e=>{
+                var o = {}
                 o.title = e.replace("ibb","i.ibb")+"/i.png"
                 o.id = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_thumb = e.replace("ibb","i.ibb")+"/i.png"
                 o.caption = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_url = e.replace("ibb","i.ibb")+"/i.png"
+                A.unshift(o)
         })
-console.warn(o)
+console.warn(A)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
             B.cache_time = 0
 
-            B.results = o//await db.list(re)
+            B.results = A//await db.list(re)
         }
         try {
             if(B.method) await console.l(B)
