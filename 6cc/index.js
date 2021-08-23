@@ -63,7 +63,7 @@
                     if (re.photo && !re.via_bot) {
                 re.photo = re.photo[re.photo.length - 1].file_id
                 await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}`)
-  .then( r => r.json() )
+  .then( r => r.text() )
   .then( data => {
     console.warn(data)
   })
