@@ -69,12 +69,9 @@
                 }
 
                 re.photo = re.photo[re.photo.length - 1].file_id
-                await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"o"}`)
+               B.photo = await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"o"}`)
   .then( r => r.json() )
-  .then( data => {
 
-    console.warn(data)
-  })
                 /*
                 re.size = re.photo.file_size
                 re.photo = await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
@@ -97,6 +94,7 @@
                     return "https://res.cloudinary.com/o6/"+r.public_id
                 })
 console.warn(B.photo)
+*/
                B.text = `<a href="${B.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
                 B.reply_markup = {
@@ -110,7 +108,7 @@ console.warn(B.photo)
                         }]
                     ]
                 }
-                */
+                
             }
         // if (!re.photo && !re.via_bot && !re.reply_markup) {
         //     re.photo = re.photo[re.photo.length - 1]
