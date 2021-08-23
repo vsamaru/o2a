@@ -296,11 +296,12 @@ B.method = "sendMessage"
             var rrr = re.query.split("\n").map(e=>{
                 var o = {}
                 o.type = "photo"
+                  
                 o.title = e.replace("ibb","i.ibb")+"/i.png"
                 o.id = e.replace("ibb","i.ibb")+"/i.png"
-                o.image_thumb = e.replace("ibb","i.ibb")+"/i.png"
+                o.thumb_url = e.replace("ibb","i.ibb")+"/i.png"
                 o.caption = e.replace("ibb","i.ibb")+"/i.png"
-                o.image_url = e.replace("ibb","i.ibb")+"/i.png"
+                o.photo_url = e.replace("ibb","i.ibb")+"/i.png"
                 A.unshift(o)
         })
 console.warn(A)
