@@ -49,10 +49,11 @@ async function handle(event) {
 async function handleEvent(event) {
 
   var vv = await db.list()
- var w = await vv.map(e => `<br><figcaption>${e.pic}</figcaption>`)
+  var rr = ""
+ var w = await vv.map(e => rr+=`<br><figcaption>${e.pic}</figcaption>`)
     var v = await vv.map((e,i) => {
         var f = ''
-if(i === (vv.length-1)) f = w
+if(i === vv.length) f = rr
         return `<br><br><figcaption>${e.id}</figcaption><img src="${e.url}" onclick=fetch("/x?i=${e.id}")>${f}`})
     
    // v.push(w)
