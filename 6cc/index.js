@@ -158,7 +158,7 @@ B.method = "sendMessage"
         //     await console.l(B)
         // }
         if (re.type === "chosen_inline_result") {
-              if (re.query.startsWith('\\')) {
+              if (re.query && re.query.startsWith('\\')) {
                 await db.del(re.result_id)
             } else {
             re.x = await db.get('*/' + re.result_id)
