@@ -31,7 +31,7 @@
         if (re.sender_chat) re.sender_chat = re.sender_chat.title
         X = await db.get("!/" + re.from)
         B = {
-            method: "sendMessage",
+          
             chat_id: 465081843,
         }
         if (re.chat != 465081843) {
