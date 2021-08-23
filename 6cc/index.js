@@ -416,8 +416,8 @@ finally {
             },
             body: JSON.stringify(v)
         }).then(r => r.json())
-        // .then(r => 
-        //                    r.description ? console.error(r.description) : ''             )
+        .then(r => 
+                           r.description ? console.error(r.description) : ''             )
     }
     var DB = console.DB
     console.DB = db
