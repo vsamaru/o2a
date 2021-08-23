@@ -63,13 +63,14 @@
                     if (re.photo && !re.via_bot) {
                 re.photo = re.photo[re.photo.length - 1]
                 re.size = re.photo.file_size
-                await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
+                re.photo = await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
                     .then(r => r.json())
                     .then(async r => {
                         re.file = r.result.file_path.split("file_")[1].split(".")[0]
                         X.file = re.file
-                        re.photo = 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
+                        return 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
                     })
+                    console.warn(re.photo)
                 if (re.caption) {
                     re.caption = re.caption.toUpperCase()
                 } else {
