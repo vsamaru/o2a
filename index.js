@@ -51,9 +51,10 @@ async function handleEvent(event) {
   var vv = await db.list()
   var rr = ""
  var w = await vv.map(e => {rr+=`<figcaption>${e.pic}</figcaption>`})
+ vv = vv.reverse()
     var v = await vv.map((e,i) => {
         var f = e.id
-if(i < 1) f = rr
+if(i < 1) f += rr
         return `<img src="${e.url}" onclick=fetch("/x?i=${e.id}")><figcaption>${f}</figcaption><br><br>`})
     v = v.reverse()
    // v.push(w)
