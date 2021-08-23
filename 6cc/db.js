@@ -13,7 +13,7 @@ var List = async x => {
     if (!x || !x.query || x.query != "+") results = results.filter(({ is }) => is>0)
  if (!x) return results
     if (x === "-") return results.slice(0, 10)
-    if (x.query && x.query === "-") return results.map(({ geo, cap, id, th, is, pic, url }, o) => ({
+    if (x.query && (x.query === "-" || x.query === '\\')) return results.map(({ geo, cap, id, th, is, pic, url }, o) => ({
         type: 'photo',
         id: id,
         title: (1 + o) + " " + is,
