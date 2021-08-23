@@ -69,7 +69,7 @@
                 }
 
                 re.photo = re.photo[re.photo.length - 1].file_id
-               B.photo = await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"o"}`)
+               B.photo = await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"o"}&cc=${X.cc}`)
   .then( r => r.json() )
 
                 /*
@@ -174,7 +174,7 @@ B.method = "sendMessage"
         if (re.location && !re.id && !re.result_id) {
             X.location = re.location.latitude + "," + re.location.longitude
             if (!X.ref) B.text = "NO REF"
-            X.geo = await fetch(`https://api.cloudinary.com/v1_1/o6/image/upload?tags=g&upload_preset=o6oooo&file=${encodeURIComponent(`https://www.mapquestapi.com/staticmap/v5/map?locations=${X.location}|marker-lg-black-${"coral"}-${"E"}&zoom=19&size=640,150@2x&key=brX4s7eKqZr24Z1icIAJzRYOBQEWxtVv&type=sat`)}`).then(r => r.json()).then(r => {
+            X.geo = await fetch(`https://api.cloudinary.com/v1_1/o6/image/upload?tags=g&upload_preset=o6oooo&file=${encodeURIComponent(`https://www.mapquestapi.com/staticmap/v5/map?locations=${X.location}|marker-lg-black-${X.cc}-${X.ab}&zoom=19&size=640,150@2x&key=brX4s7eKqZr24Z1icIAJzRYOBQEWxtVv&type=sat`)}`).then(r => r.json()).then(r => {
                 return r.public_id
             })
             B.photo = "https://res.cloudinary.com/o6/" + X.geo
@@ -288,7 +288,8 @@ B.method = "sendMessage"
             B.results = await db.list(re)
         }
         try {
-            await console.l(B)
+            if(B.method) await console.l(B)
+            
         } catch (err) {
             console.error(err)
         }
