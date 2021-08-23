@@ -61,11 +61,18 @@
             delete re.document
         }
                     if (re.photo && !re.via_bot) {
+
+                if (re.caption) {
+                    re.caption = re.caption.toUpperCase()
+                } else {
+                    re.caption = "ПО-СТРЕЛКЕ"
+                }
+                        
                 re.photo = re.photo[re.photo.length - 1].file_id
-                await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}`)
+                await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}`)
   .then( r => r.text() )
   .then( data => {
-    
+
     console.warn(data)
   })
                 /*
