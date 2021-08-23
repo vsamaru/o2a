@@ -193,6 +193,9 @@ B.method = "sendMessage"
                         "text": "➕",
                         "switch_inline_query_current_chat": "+"
                     }, {
+                        "text": "/",
+                        "switch_inline_query_current_chat": "\\"
+                    }, {
                         "text": "👁‍🗨",
                         "switch_inline_query": ""
                     }]
