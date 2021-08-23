@@ -95,8 +95,8 @@
                 })
 console.warn(B.photo)
 */
-B.method = "editMessageText"
-B.message_id = X.msg
+B.method = "sendText"
+//B.message_id = X.msg
                B.text = `<a href="${B.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
                B.reply_markup = {
@@ -303,7 +303,7 @@ B.message_id = X.msg
         re = await x(re)
         await db.put(X, re.from)
         if (re.message_id) {
-         //   await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
+            await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
         }
         return re
     }
