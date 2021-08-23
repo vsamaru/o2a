@@ -11,6 +11,7 @@ var List = async x => {
     }).run()
     results = JSON.parse(JSON.stringify(results))
     if (!x || !x.query || x.query != "+") results = results.filter(({ is }) => is>0)
+        results = results.filter(({ set }) => set==X.set)
  if (!x) return results
     if (x === "-") return results.slice(0, 10)
     if (x.query && (x.query === "-" || x.query === '\\')) return results.map(({ geo, cap, id, th, is, pic, url }, o) => ({
