@@ -70,7 +70,7 @@
 
                 re.photo = re.photo[re.photo.length - 1].file_id
                 await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}`)
-  .then( r => r.text() )
+  .then( r => r.json() )
   .then( data => {
 
     console.warn(data)
