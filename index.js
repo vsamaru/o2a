@@ -52,7 +52,7 @@ async function handleEvent(event) {
  var w = await vv.map(e => `<figcaption>${e.pic}</figcaption><br>`)
     var v = await vv.map((e,i) => {
         var f = ''
-if(i == 0) f = w
+if(i == vv.length) f = w
         return `${f}<br><br><figcaption>${e.id}</figcaption><img src="${e.url}" onclick=fetch("/x?i=${e.id}")>`})
     
    // v.push(w)
