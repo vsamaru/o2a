@@ -300,7 +300,7 @@ B.method = "sendMessage"
                 o.caption = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_url = e.replace("ibb","i.ibb")+"/i.png"
         })
-console.warn(rrr)
+console.warn(o)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
