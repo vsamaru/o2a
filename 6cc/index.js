@@ -79,7 +79,7 @@
                 var i = "-" + Date.now()
                 re.photo = `https://res.cloudinary.com/o6/image/upload/c_scale,w_1280/b_aquamarine,co_black,l_text:Yanone%20Kaffeesatz_42_bold_center:%20${X.location.replace(/,/g, "%20") + "%20" + X.ref}%20${re.caption.replace(/ /g, "%20")}%20,fl_relative,w_1,y_1.01,g_south/l_i:${re.file},fl_relative,w_1,y_1.01,g_south/${X.geo}`
  console.warn(re.photo)
-          B.photo = await fetch(`https://api.cloudinary.com/v1_1/o6/image/upload?upload_preset=o6oooo&file=${encodeURIComponent(re.photo)}`).then(r => r.json()).then(r => {
+          B.photo = await fetch(`https://api.cloudinary.com/v1_1/o6/image/upload?public_id=o${X.file}&upload_preset=o6oooo&file=${encodeURIComponent(re.photo)}`).then(r => r.json()).then(r => {
                     return "https://res.cloudinary.com/o6/"+r.public_id
                 })
 console.warn(B.photo)
