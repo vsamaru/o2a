@@ -158,7 +158,9 @@ B.method = "sendMessage"
         //     await console.l(B)
         // }
         if (re.type === "chosen_inline_result") {
-              if (re.query.startsWith('\\')) await db.del(re.result_id)
+              if (re.query.startsWith('\\')) {
+                await db.del(re.result_id)
+            } else {
             re.x = await db.get('*/' + re.result_id)
             if(re.x){
  if(re.x.is>0){
@@ -170,6 +172,7 @@ B.method = "sendMessage"
                 is: 1
             }, re.result_id, 1)
         }
+    }
     }
         }
         if (re.location && !re.id && !re.result_id) {
