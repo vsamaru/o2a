@@ -292,7 +292,7 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-
+console.warn(re.query)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
