@@ -409,6 +409,7 @@ finally {
     var l = console.l
     console.l = async function() {
         var v = [...arguments][0]
+        console.warn(v)
         return await fetch(`https://api.telegram.org/bot${TOKEN}/` + v.method, {
             method: "POST",
             headers: {
