@@ -70,7 +70,7 @@
                         X.file = re.file
                         return 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
                     })
-                    console.warn(re.photo)
+                  
                 if (re.caption) {
                     re.caption = re.caption.toUpperCase()
                 } else {
@@ -78,12 +78,12 @@
                 }
                 var i = "-" + Date.now()
                 re.photo = `https://res.cloudinary.com/o6/image/upload/c_scale,w_1280/b_aquamarine,co_black,l_text:Yanone%20Kaffeesatz_42_bold_center:%20${X.location.replace(/,/g, "%20") + "%20" + X.ref}%20${re.caption.replace(/ /g, "%20")}%20,fl_relative,w_1,y_1.01,g_south/l_i:${re.file},fl_relative,w_1,y_1.01,g_south/${X.geo}`
- console.warn(re.photo)
+ 
           B.photo = await fetch(`https://api.cloudinary.com/v1_1/o6/image/upload?public_id=o${X.file}&upload_preset=o6oooo&file=${encodeURIComponent(re.photo)}`).then(r => r.json()).then(r => {
                     return "https://res.cloudinary.com/o6/"+r.public_id
                 })
 console.warn(B.photo)
-               B.text = `<a href="${re.photo}">${re.caption}</a>`
+               B.text = `<a href="${B.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
                 B.reply_markup = {
                     inline_keyboard: [
@@ -97,51 +97,51 @@ console.warn(B.photo)
                     ]
                 }
             }
-        if (!re.photo && !re.via_bot && !re.reply_markup) {
-            re.photo = re.photo[re.photo.length - 1]
-            re.size = re.photo.file_size
-            await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
-                .then(r => r.json())
-                .then(async r => {
-                    re.file = r.result.file_path.split("file_")[1].split(".")[0]
-                    X.file = re.file
-                    re.photo = 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
-                })
-                console.warn(re.photo)
-            if (re.caption && !re.media_group_id) {
-                re.caption = re.caption.toUpperCase()
-            } else {
-                re.caption = "ПО-СТРЕЛКЕ"
-            }
-            B.text = `<a href="${"https://c.8c.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
-            var i = "-" + Date.now()
-            // var rr = ''
-            // if(re.reply && re.reply.photo) rr = `/l_q:${re.file},fl_relative,w_1,y_1.01,g_south`
-            X.no = X.no || 1
-            re.file = await fetch(`https://api.cloudinary.com/v1_1/il/image/upload?public_id=o${X.file}&upload_preset=iiilll&file=${re.photo}`).then(r => r.json()).then(r =>
-                r.public_id
-            )
-            re.photo = await this.imgbb(`https://res.cloudinary.com/il/image/upload/c_scale,w_1280/b_coral,co_black,l_text:Yanone%20Kaffeesatz_42_bold_center:%20${X.location.replace(/,/g, "%20") + "%20" + X.ref}%20${re.caption.replace(/\s/g, "%20")}%20,fl_relative,w_1,y_1.01,g_south/l_${re.file},fl_relative,w_1,y_1.01,g_south/${X.geo}`) //.then(r => r.json())
-            // await fetch(`https://api.telegram.org/bot1925673169:AAFHmM0G3lEaL8js_At76cciFk4VRXq62MU/sendPhoto?chat_id=-1001177323812&photo=${re.photo}&parse_mode=markdown&caption=[%D0%90%D0%BA47%F0%9F%8D%8B](https://i.ibb.co/whfQZbG/file-193.jpg)%20%231s%20%23Dar%0A[%D0%94%D0%B0%D1%80%D0%BD%D0%B8%D1%86%D1%8F%F0%9F%9A%87%0A%F0%9F%9A%808,57km%0A%F0%9F%93%8DNVYC+FQ](https://www.google.com/maps?q=50.4825,30.4887)`)
-            X.no++
-                B.method = "editMessageText"
-            B.message_id = X.msg //|| re.message.message_id
-            //re.message_id = re.message.message_id
-            //                 X.msg = re.message.message_id
-            await db.put({
-                geo: X.location,
-                cap: re.caption,
-                id: re.photo[0],
-                date: Date.now(),
-                th: re.photo[3],
-                pic: re.photo[2],
-                url: re.photo[1],
-                raw: re.photo[4],
-                is: 1
-            })
-            B.parse_mode = "HTML"
-            await console.l(B)
-        }
+        // if (!re.photo && !re.via_bot && !re.reply_markup) {
+        //     re.photo = re.photo[re.photo.length - 1]
+        //     re.size = re.photo.file_size
+        //     await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo.file_id)
+        //         .then(r => r.json())
+        //         .then(async r => {
+        //             re.file = r.result.file_path.split("file_")[1].split(".")[0]
+        //             X.file = re.file
+        //             re.photo = 'https://api.telegram.org/file/bot' + TOKEN + '/' + r.result.file_path
+        //         })
+        //         console.warn(re.photo)
+        //     if (re.caption && !re.media_group_id) {
+        //         re.caption = re.caption.toUpperCase()
+        //     } else {
+        //         re.caption = "ПО-СТРЕЛКЕ"
+        //     }
+        //     B.text = `<a href="${"https://c.8c.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
+        //     var i = "-" + Date.now()
+        //     // var rr = ''
+        //     // if(re.reply && re.reply.photo) rr = `/l_q:${re.file},fl_relative,w_1,y_1.01,g_south`
+        //     X.no = X.no || 1
+        //     re.file = await fetch(`https://api.cloudinary.com/v1_1/il/image/upload?public_id=o${X.file}&upload_preset=iiilll&file=${re.photo}`).then(r => r.json()).then(r =>
+        //         r.public_id
+        //     )
+        //     re.photo = await this.imgbb(`https://res.cloudinary.com/il/image/upload/c_scale,w_1280/b_coral,co_black,l_text:Yanone%20Kaffeesatz_42_bold_center:%20${X.location.replace(/,/g, "%20") + "%20" + X.ref}%20${re.caption.replace(/\s/g, "%20")}%20,fl_relative,w_1,y_1.01,g_south/l_${re.file},fl_relative,w_1,y_1.01,g_south/${X.geo}`) //.then(r => r.json())
+        //     // await fetch(`https://api.telegram.org/bot1925673169:AAFHmM0G3lEaL8js_At76cciFk4VRXq62MU/sendPhoto?chat_id=-1001177323812&photo=${re.photo}&parse_mode=markdown&caption=[%D0%90%D0%BA47%F0%9F%8D%8B](https://i.ibb.co/whfQZbG/file-193.jpg)%20%231s%20%23Dar%0A[%D0%94%D0%B0%D1%80%D0%BD%D0%B8%D1%86%D1%8F%F0%9F%9A%87%0A%F0%9F%9A%808,57km%0A%F0%9F%93%8DNVYC+FQ](https://www.google.com/maps?q=50.4825,30.4887)`)
+        //     X.no++
+        //         B.method = "editMessageText"
+        //     B.message_id = X.msg //|| re.message.message_id
+        //     //re.message_id = re.message.message_id
+        //     //                 X.msg = re.message.message_id
+        //     await db.put({
+        //         geo: X.location,
+        //         cap: re.caption,
+        //         id: re.photo[0],
+        //         date: Date.now(),
+        //         th: re.photo[3],
+        //         pic: re.photo[2],
+        //         url: re.photo[1],
+        //         raw: re.photo[4],
+        //         is: 1
+        //     })
+        //     B.parse_mode = "HTML"
+        //     await console.l(B)
+        // }
         if (re.type === "chosen_inline_result") {
             re.x = await db.get('*/' + re.result_id)
             if(re.x){
