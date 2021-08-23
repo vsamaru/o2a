@@ -99,11 +99,11 @@ B.method = "editMessageText"
 B.message_id = X.msg
                B.text = `<a href="${B.photo}">${re.caption}</a>`
                B.parse_mode = "HTML"
-                B.reply_markup = {
+               B.reply_markup = {
                     inline_keyboard: [
                         [{
                             "text": "🆔",
-                            "callback_data": X.file
+                            "callback_data": "+"
                         },  {
                             "text": "DEL",
                             "callback_data": "-"
@@ -211,7 +211,7 @@ B.message_id = X.msg
             await console.l(B)
             re.message_id = re.message.message_id
         }
-        if (re.data && !isNaN(re.data)) {
+        if (re.data && re.data == "+") {
             // delete re.message_id
             B.method = "answerCallbackQuery"
             B.callback_query_id = re.id
