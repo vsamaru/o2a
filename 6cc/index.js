@@ -297,6 +297,7 @@ B.method = "sendMessage"
                 o.title = e.replace("ibb","i.ibb")+"/i.png"
                 o.id = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_thumb = e.replace("ibb","i.ibb")+"/i.png"
+                o.caption = e.replace("ibb","i.ibb")+"/i.png"
                 o.image_url = e.replace("ibb","i.ibb")+"/i.png"
         })
 console.warn(rrr)
@@ -304,6 +305,7 @@ console.warn(rrr)
             B.inline_query_id = re.id
             B.is_personal = true
             B.cache_time = 0
+
             B.results = o//await db.list(re)
         }
         try {
