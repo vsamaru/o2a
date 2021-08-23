@@ -66,8 +66,8 @@ var H = (x,v) => `<!DOCTYPE html>
 <head>
     <meta property="og:site_name" content="ㅤ">
     <meta property="og:title" content="ㅤ">
-    <meta property="og:description" content="${v.length}">
-    <meta property="og:image" content="${v[0].url}">
+    <meta property="og:description" content="${vv.length}">
+    <meta property="og:image" content="${vv[0].url}">
  <meta data-rh="true" property="al:android:app_name" content="Medium" />
     <meta property="article:published_time" content="2020-02-03T23:10:04.654Z">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
