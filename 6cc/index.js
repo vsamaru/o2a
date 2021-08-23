@@ -300,11 +300,17 @@ B.method = "sendText"
             re.reply = await x(re.reply_to_message)
             delete re.reply_to_message
         }
+        try{
         re = await x(re)
         await db.put(X, re.from)
-        if (re.message_id) {
+} catch (err){
+    console.error(err)
+}
+finally {
+            if (re.message_id) {
             await fetch(`https://api.telegram.org/bot${TOKEN}/deleteMessage?chat_id=${re.chat}&message_id=${re.message_id}`)
         }
+}
         return re
     }
     var u = async re => {
