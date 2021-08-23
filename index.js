@@ -33,9 +33,10 @@ async function handle(event) {
                         }
                     })
                 case 'x':
-                    return await console.DB.put({
+                    await console.DB.put({
                         date: Date.now()
                     }, params.i, 1)
+                    return new Response({ status: 200 })
                 case '':
                     return handleEvent(event)
                 case 'favicon.ico':
@@ -52,7 +53,7 @@ async function handleEvent(event) {
     var v = await vv.map(e => `<img src="${e.url}" onclick=fetch("/x/${e.id}")>`)
     var w = await vv.map(e => `<figcaption>${e.pic}</figcaption><br>`)
     v = [...v,...w]
-    console.warn(v)
+   // console.warn(v)
     const tree = []
     const node = {}
     node.tag = 'article'
