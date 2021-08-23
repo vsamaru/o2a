@@ -292,13 +292,19 @@ B.method = "sendMessage"
             }
         }
         if (re.type === "inline_query") {
-            var rrr = re.query.split("\n").map(e=>e.replace("ibb","i.ibb")+"/i.png")
+            var o = {}
+            var rrr = re.query.split("\n").map(e=>{
+                o.title = e.replace("ibb","i.ibb")+"/i.png"
+                o.id = e.replace("ibb","i.ibb")+"/i.png"
+                o.image_thumb = e.replace("ibb","i.ibb")+"/i.png"
+                o.image_url = e.replace("ibb","i.ibb")+"/i.png"
+        })
 console.warn(rrr)
             B.method = 'answerInlineQuery'
             B.inline_query_id = re.id
             B.is_personal = true
             B.cache_time = 0
-            B.results = await db.list(re)
+            B.results = o//await db.list(re)
         }
         try {
             if(B.method) await console.l(B)
