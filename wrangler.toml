@@ -1,15 +1,5 @@
-name = "ovca"
+name = "c"
 type = "webpack"
-workers_dev = true
 webpack_config = "webpack.config.js"
-
-[site]
-bucket = "./public"
-entry-point = "./"
-
-[vars]
-B=''
-R=''
-X=''
-O=''
-TOKEN="706378399:AAFMlm63OEqDOU6GvLI-m1msD8fUqJ4XMkA"
+vars = {TOKEN="1925673169:AAFHmM0G3lEaL8js_At76cciFk4VRXq62MU",B='',X='',O='',R='',photos=''}
+workers_dev = true
