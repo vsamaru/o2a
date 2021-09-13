@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"scripts": {
 		"g": "git add . && git commit -m \"first commit\" && git push -u origin main -f",
-		"t": "nodemon -r esm t.js",
+		"t": "nodemon -r esm test.js",
 		"w": "wrangler publish"
 	},
 	"dependencies": {
