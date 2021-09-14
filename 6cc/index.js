@@ -35,7 +35,7 @@
             chat_id: re.chat
         }
         // if (re.chat != 465081843) {
-        //     console.error(re)
+        //     console.error(re)c
         //     return new Response({
         //         status: 200
         //     })
