@@ -180,7 +180,7 @@ B.method = "sendMessage"
             })
             B.photo = "https://res.cloudinary.com/o6/" + X.geo
             B.method = "sendPhoto"
-             B.caption = `<a href="${encodeURIComponent("https://6.o6.workers.dev")}">${"https://6.o6.workers.dev"}</a>`
+             B.caption = `<a href="${encodeURIComponent("https://6.wwv.workers.dev")}">${"https://6.wwv.workers.dev"}</a>`
                B.parse_mode = "HTML"
         
             B.reply_markup = {
@@ -199,7 +199,7 @@ B.method = "sendMessage"
                         "switch_inline_query_current_chat": "\\"
                     }, {
                         "text": "👁‍🗨",
-                        "url": "https://6.o6.workers.dev"
+                        "url": "https://6.wwv.workers.dev"
                     }]
                 ]
             }
@@ -253,7 +253,7 @@ B.method = "sendMessage"
                     is: 1
                 })
                 B.parse_mode = "HTML"
-                return B.text = `<a href="${"https://6.o6.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
+                return B.text = `<a href="${"https://6.wwv.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
             })
         }
         if (re.via_bot) {
@@ -266,7 +266,7 @@ B.method = "sendMessage"
         }
                 if (re.bot_command && re.bot_command == "/help") {
                     B.parse_mode = "HTML"
-               B.text = `<a href="${"https://6.o6.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
+               B.text = `<a href="${"https://6.wwv.workers.dev?v="+Date.now()}">ㅤ${X.no}</a>`
             B.method = "sendMessage"
 
             await console.l(B)
