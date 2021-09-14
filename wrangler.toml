@@ -1,4 +1,4 @@
-name = "6"
+name = "i6og"
 type = "webpack"
 webpack_config = "webpack.config.js"
 vars = {TOKEN="1925673169:AAFHmM0G3lEaL8js_At76cciFk4VRXq62MU",B='',X='',O='',R='',photos=''}
