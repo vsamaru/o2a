@@ -1,5 +1,11 @@
-name = "i6og"
+name = "l"
 type = "webpack"
-webpack_config = "webpack.config.js"
-vars = {TOKEN="1925673169:AAFHmM0G3lEaL8js_At76cciFk4VRXq62MU",B='',X='',O='',R='',photos=''}
+
 workers_dev = true
+vars = {TOKEN="1067208185:AAG0CzzAh89k3GHsx_i19MjhDA2meW5BgDI",X='',CTX='',F='',B=""}
+# kv_namespaces = [                                                                                                                                                                                            
+#          { binding = "M", id = "f0794462b83749ad952efebfec73df9d" }                                                                                                                                          
+# ]
+[site]
+bucket = "./api"
+entry-point = "."

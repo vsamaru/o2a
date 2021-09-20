@@ -1,140 +1,196 @@
-import './6cc/index'
-import db from './6cc/db'
-import { render } from 'posthtml-render'
-import { getAssetFromKV, mapRequestToAsset } from './asset'
+import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+require('0e')
+var { api } = require('./api')
+/**
+ * The DEBUG flag will do two things that help during development:
+ * 1. we will skip caching on the edge, which makes it easier to
+ *    debug.
+ * 2. we will return an error message on exception in your Response rather
+ *    than the default 404.html page.
+ */
+// const DEBUG = false
 addEventListener('fetch', event => {
-    O = O || {}
-    event.respondWith(handle(event).catch(err => console.error(err)))
+  CTX={}
+  X={}
+  B={}
+  try {
+        if (event.request.method === 'POST') return event.respondWith(raw(event.request))
+      
+    
+    event.respondWith(handleEvent(event))
+  
+  } catch (e) {
+  console.error(e)
+      return event.respondWith(
+        new Response(e.message || e.toString(), {
+          status: 500
+        })
+      )
+  
+   
+  }
 })
 
-async function handle(event) {
-    var { request } = event
-    var { method, url } = request
-    var url = new URL(url)
-    var { pathname } = url
-    pathname = pathname.replace("/", "")
-    const params = {}
-    const queryString = url.search.slice(1).split('&')
-    queryString.forEach(item => {
-        const [key, value] = item.split('=')
-        if (key) params[key] = value || true
-    })
-    switch (method) {
-        case 'POST':
-            await console.N(await request.json())
-            return new Response({ status: 200 })
-        case 'GET':
-            switch (pathname) {
-                case 'l':
+var date = () => "-" + (new Date()
+    .toISOString()
+    .replace(/T/, '')
+    .replace(/2021-/, '')
+    .replace(/\..+/, '')
+    .replace(/:|-/g, '')
+    )
 
-                    return new Response(JSON.stringify(await console.DB.list()), {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                case 'x':
-                    await console.DB.put({
-                        date: Date.now()
-                    }, params.i, 1)
-                    return new Response({ status: 200 })
-                case '':
-                    return handleEvent(event)
-                case 'favicon.ico':
-                case 'robots.txt':
-                    return new Response(null, { status: 204 })
-            }
+async function raw(re) {
+
+re = await re.json()
+ var type = Object.keys(re)[1]
+    re = re[type]
+    re.from = re.from || re.chat
+    re.chat = re.from.id
+    re.from = re.from.username || re.from.title || re.from.first_name
+      re.in = []
+
+console.warn(date())
+              var o = {}
+
+    var e = {}
+          var body = { 
+      method: 'sendMessage',
+      chat_id: re.chat
+ 
+    
+    //  message_id: re.message_id || re.message.message_id
     }
-   // return new Response({ status: 200 })
+    /*
+try {
+       e = await fetch( 'https://w-2-b.firebaseio.com/-0999.json').then(r => r.json())
+       e = e[String(re.chat)] 
+       if(!e) return new Response("ok", { status: 200 })
+        F = 'https://w-2-b.firebaseio.com/-0800/'+e+'/.json'
+        
+    
+
+
+       e = await fetch( F).then(r => r.json()).catch(err => {})
+      console.warn(e) 
+    } catch (err) {
+        body.text = err.stack
+        //console.log(err.stack || err);
+    }
+*/
+if(re.photo){
+        re.photo = re.photo[re.photo.length - 1].file_id
+    var getfile = await fetch('https://api.telegram.org/bot' + TOKEN + '/getFile?file_id=' + re.photo)
+    getfile = await getfile.json()
+    var path = 'https://api.telegram.org/file/bot' + TOKEN + '/' + getfile.result.file_path
+    path = await fetch('https://api.imgbb.com/1/upload?key=33612f7751537f4f27c5253f56edbf16&name=&image=' + path);
+    path = await path.json()
+    re.in.push([date(),path.data.id, path.data.url_viewer.replace("https://", ""),path.data.thumb.url,path.data.display_url])
+        o[path.data.id]= re
+let data = JSON.stringify(o)
+    try {
+       body.text = await fetch( 'https://w-2-b.firebaseio.com/.json', {
+            method: 'PATCH',
+          //  headers: myHeaders,
+            body: data
+        }).then(r => r.json())
+    } catch (err) {
+        body.text = err.stack
+        //console.log(err.stack || err);
+    }
+  }
+  /*  */
+
+    return new Response(JSON.stringify(body,null,4), {
+     
+      headers: {'Content-Type': 'application/json'}
+    })
 }
 async function handleEvent(event) {
+  const url = new URL(event.request.url)
+  let options = {}
+      if (event.request.method.toUpperCase() === "PUT") {
 
-  var vv = await db.list()
-  var rr = ""
- var w = await vv.map(e => {rr+=`<figcaption>${e.pic}</figcaption>`})
- vv = vv.reverse()
-    var v = await vv.map((e,i) => {
-        var f = e.id
-if(i < 1) f = "<br><br>"+rr
-        return `<img src="${e.url}" onclick=fetch("/x?i=${e.id}")><figcaption>${f}</figcaption><br><br>`})
-    v = v.reverse()
-   // v.push(w)
-    // v = [...v,...w]
-   // console.warn(v)
-    const tree = []
-    const node = {}
-    node.tag = 'article'
-    node.attrs = { class: 'article__content' }
-    node.content = await v.map((content) => ({ tag: "figure", content }))
-    tree.push(node)
-    const html = render(tree, {})
+return new Response(TOKEN, { status: 200 })
 
-var H = (x,v) => `<!DOCTYPE html>
-<head>
-    <meta property="og:site_name" content="ㅤ">
-    <meta property="og:title" content="ㅤ">
-    <meta property="og:description" content="${vv.length}">
-    <meta property="og:image" content="${vv.reverse()[0].url}">
- <meta data-rh="true" property="al:android:app_name" content="Medium" />
-    <meta property="article:published_time" content="2020-02-03T23:10:04.654Z">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
-    <link rel="icon" type="image/png" href="https://life.godo.com.ua/wp-content/uploads/2020/11/cropped-favicon.png"/>
-<style>
-* {
-      clear: both; 
-    text-align: center; 
-    margin-left: auto; 
-    margin-right: auto;
-  background-color: #222;
+      }
+            if (event.request.method.toUpperCase() === "POST") {
+                   var init = {
+      headers: {
+        'content-type': 'application/json',
+      }
+    }
+    try{
+var a = await api(event)
+} catch (err) {
+  console.error(err)
 }
-figure {
+// console.warn(a)
+return new Response(a, init)
 
-    box-sizing: border-box; 
-    margin-left: 5px;
-    margin-right: 5px;
+      }
+  /**
+   * You can add custom logic to how we fetch your assets
+   * by configuring the function `mapRequestToAsset`
+   */
+  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
 
-min-height: 100%; 
-    width: auto;
-    display: flex;
-    flex-flow: column;
-    margin: auto;
-    align: center;
-}
-img {
-     width: 960px;
-}
-figcaption {
-    font-size: 42px;
-  max-height: 44px; 
-    color: #fff;
-    font-family: "Yanone Kaffeesatz";
-    text-align: center;
-}
-</style>
-</head>
-<body>
-    <div class="article">
-       
-${x}
-
-    </div>
-</body>
-</html>`
-
-
-    return new Response(H(html,vv), {
-        headers: {
-            'Content-Type': 'text/html;charset=UTF-8',
-            'Access-Control-Allow-Origin': '*',
-            "Cache-Control": "max-age=0"
-        }
-    })
-    // try {
-    //     const page = await getAssetFromKV(event, {})
-    //     console.warn(page.body, page)
-    //     const response = new Response(page.body, page)
-    //     return response
-    // } catch (e) {
-    //     console.error(e)
-    //     return new Response({ status: 200 })
+  try {
+    // if (DEBUG) {
+    //   // customize caching
+    //   options.cacheControl = {
+    //     bypassCache: true,
+    //   }
     // }
+
+    const page = await getAssetFromKV(event, options)
+
+    // allow headers to be altered
+    const response = new Response(page.body, page)
+
+    response.headers.set('X-XSS-Protection', '1; mode=block')
+    response.headers.set('X-Content-Type-Options', 'nosniff')
+    response.headers.set('X-Frame-Options', 'DENY')
+    response.headers.set('Referrer-Policy', 'unsafe-url')
+    response.headers.set('Feature-Policy', 'none')
+
+    return response
+
+  } catch (e) {
+     console.error(e)
+    // if an error is thrown try to serve the asset at 404.html
+    // if (!DEBUG) {
+      try {
+        let notFoundResponse = await getAssetFromKV(event, {
+          mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
+        })
+
+        return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+      } catch (e) {
+        console.error(e)
+      }
+    }
+console.error(e)
+    return new Response(e.message || e.toString(), { status: 500 })
+  }
+// }
+
+/**
+ * Here's one example of how to modify a request to
+ * remove a specific prefix, in this case `/docs` from
+ * the url. This can be useful if you are deploying to a
+ * route on a zone, or if you only want your static content
+ * to exist at a specific path.
+ */
+function handlePrefix(prefix) {
+  return request => {
+    // compute the default (e.g. / -> index.html)
+    let defaultAssetKey = mapRequestToAsset(request)
+    let url = new URL(defaultAssetKey.url)
+
+    // strip the prefix from the path for lookup
+    url.pathname = url.pathname.replace(prefix, '/')
+
+    // inherit all other props from the default request
+    return new Request(url.toString(), defaultAssetKey)
+  }
 }

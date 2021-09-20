@@ -1,17 +1,17 @@
 {
-	"private": true,
-	"version": "1.0.0",
-	"main": "index.js",
-	"scripts": {
-		"g": "git add . && git commit -m \"first commit\" && git push -u origin main -f",
-		"t": "nodemon -r esm test.js",
-		"w": "wrangler publish"
-	},
-	"dependencies": {
-		"esm": "^3.2.25",
-		"firebase-firestore-lite": "^1.0.3",
-		"isomorphic-unfetch": "^3.1.0",
-		"mime": "^2.5.2",
-		"posthtml-render": "^3.0.0"
-	}
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "0e": "^0.0.109",
+        "@cloudflare/kv-asset-handler": "~0.0.11",
+        "columnify": "^1.5.4",
+        "esm": "^3.2.25",
+        "firebase-firestore-lite": "^1.0.3",
+        "isomorphic-unfetch": "^3.1.0"
+    },
+    "scripts": {
+          "g": "git add . && git commit -m \"first commit\" && git push -u origin main -f",
+        "t": "nodemon -r esm test.js",
+        "w": "wrangler publish"
+    }
 }
