@@ -7,5 +7,5 @@ vars = {TOKEN="1067208185:AAG0CzzAh89k3GHsx_i19MjhDA2meW5BgDI",X='',CTX='',F='',
 #          { binding = "M", id = "f0794462b83749ad952efebfec73df9d" }                                                                                                                                          
 # ]
 [site]
-bucket = "./data"
+bucket = "./dist"
 entry-point = "."
